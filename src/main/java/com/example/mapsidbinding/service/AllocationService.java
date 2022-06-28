@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.Fetch;
-import javax.persistence.criteria.JoinType;
 import java.util.List;
 
 @Service
@@ -28,7 +26,7 @@ public class AllocationService {
 
     public static Specification<AllocationSector> fetchSector() {
         return (root, query, criteriaBuilder) -> {
-            root.fetch(AllocationSector_.sector, JoinType.INNER);
+            root.fetch(AllocationSector_.sector);
             return null;
         };
     }
